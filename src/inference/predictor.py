@@ -17,6 +17,7 @@ from src.models.similarity import compute_similarity_scores
 from src.preprocess.clahe import apply_clahe_bgr
 
 def run_inference(
+    *, # Forces keyword arguments -> a(b = b, c = c) not a(b, c)
     tta: bool = True,
     ref_img_dir: str = None,
     test_data_dir: str = None,

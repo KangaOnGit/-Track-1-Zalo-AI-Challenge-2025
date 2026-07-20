@@ -32,8 +32,8 @@ def main():
     
     print(cfg)
     run_inference(
-        yolov8_weights=cfg["model"]["yolov8n"],
-        yolov11_weights=cfg["model"]["yolov11n"],
+        model_1_weights=cfg["model"]["yolov8n"],
+        model_2_weights=cfg["model"]["yolov11n"],
 
         test_data_dir=cfg["data"]["test_dir"],
         ref_img_dir=cfg["data"]["ref_img_dir"],
