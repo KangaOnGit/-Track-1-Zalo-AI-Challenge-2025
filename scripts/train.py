@@ -87,10 +87,12 @@ def main():
     print("Training configuration")
     for k, v in train_kwargs.items():
         print(f"{k:15}: {v}")
-
+        
+    print(args)
     model.train(**train_kwargs)
 
 
 if __name__ == "__main__":
     main()
     
+# python -m scripts.train --args

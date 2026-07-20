@@ -43,9 +43,9 @@ experiments:
       cos_lr: true
 
     augmentation:
-      # cutmix: 0.1
-      # copy_paste: 0.2
-      # copy_paste_mode: "mixup"
+      cutmix: 0.1
+      copy_paste: 0.2
+      copy_paste_mode: "mixup"
 
     options:
       single_cls: true

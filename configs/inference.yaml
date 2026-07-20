@@ -1,13 +1,13 @@
 model:
-  yolov8n: "YOLO_Ensembles_for_Real-Time_Small_Object_Detection_on_Moving_Drones_with_Reference_Image\YOLO_Weights\YOLOv8-n.pt"
-  yolov11n: "YOLO_Ensembles_for_Real-Time_Small_Object_Detection_on_Moving_Drones_with_Reference_Image\YOLO_Weights\YOLOv11-n.pt"
+  yolov8n: 'YOLO_Weights/YOLOv8-n.pt'
+  yolov11n: 'YOLO_Weights/YOLOv11-n.pt'
 
 data:
-  test_dir: r"YOLO_Ensembles_for_Real-Time_Small_Object_Detection_on_Moving_Drones_with_Reference_Image\data\public_test\samples"
-  ref_img_dir: "YOLO_Ensembles_for_Real-Time_Small_Object_Detection_on_Moving_Drones_with_Reference_Image/Reference Images (Uncleaned)"
+  test_dir: 'data/public_test/samples'
+  ref_img_dir: 'Reference Images (Uncleaned)'
 
 output:
-  file: "predictions.json"
+  file: 'predictions.json'
 
 inference:
   confidence_threshold: 0.25

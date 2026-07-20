@@ -29,21 +29,22 @@ def main():
     args = parser.parse_args()
 
     cfg = load_config(args.config)
+    
     print(cfg)
-    #run_inference(
-        #yolov8_weights=cfg["model"]["yolov8n"],
-        #yolov11_weights=cfg["model"]["yolov11n"],
+    run_inference(
+        yolov8_weights=cfg["model"]["yolov8n"],
+        yolov11_weights=cfg["model"]["yolov11n"],
 
-        #test_data_dir=cfg["data"]["test_dir"],
-        #ref_img_dir=cfg["data"]["ref_img_dir"],
+        test_data_dir=cfg["data"]["test_dir"],
+        ref_img_dir=cfg["data"]["ref_img_dir"],
 
-        #output_file=cfg["output"]["file"],
+        output_file=cfg["output"]["file"],
 
-        #confidence_threshold=cfg["inference"]["confidence_threshold"],
+        confidence_threshold=cfg["inference"]["confidence_threshold"],
 
-        #tta=args.tta,
-        #clahe=args.clahe,
-    #)
+        tta=args.tta,
+        clahe=args.clahe,
+    )
 
 
 if __name__ == "__main__":
