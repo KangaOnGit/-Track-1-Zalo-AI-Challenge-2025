@@ -19,13 +19,13 @@ from src.preprocess.clahe import apply_clahe_bgr
 def run_inference(
     *, # Forces keyword arguments -> a(b = b, c = c) not a(b, c)
     tta: bool = True,
-    ref_img_dir: str = None,
-    test_data_dir: str = None,
-    model_1_weights: str = None,
-    model_2_weights: str = None,
-    output_file: str = None,
+    ref_img_dir: str,
+    test_data_dir: str,
+    model_1_weights: str,
+    model_2_weights: str,
+    output_file: str,
     clahe: bool = False,
-    confidence_threshold: int = 0.25,
+    confidence_threshold: float = 0.25,
 ):
 
     try:
