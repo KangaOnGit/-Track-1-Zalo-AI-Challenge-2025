@@ -21,11 +21,16 @@ def run_inference(
     tta: bool = True,
     ref_img_dir: str,
     test_data_dir: str,
+    
     model_1_weights: str,
     model_2_weights: str,
+    
     output_file: str,
     clahe: bool = False,
     confidence_threshold: float = 0.25,
+    
+    imgsz1: int = 640,
+    imgsz2: int = 1028,
 ):
 
     try:
@@ -92,7 +97,7 @@ def run_inference(
                 # ================= model_1 =================
                 reslist_model_1 = model_1.predict(
                     frame,
-                    imgsz=640,
+                    imgsz=imgsz1,
                     conf=confidence_threshold,
                     verbose=False,
                     augment=tta
@@ -123,7 +128,7 @@ def run_inference(
                 # ================= model-2 =================
                 reslist_model_2 = model_2.predict(
                     frame,
-                    imgsz=1024,
+                    imgsz=imgsz2,
                     conf=confidence_threshold,
                     verbose=False,
                     augment=tta

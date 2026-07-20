@@ -1,7 +1,7 @@
 experiments:
 
   yolov8n:
-    model: "yolov8n.pt"
+    model: "YOLO_Weights/yolov8n.pt"
     data: "yolo_dataset/dataset.yaml"
 
     training:
@@ -28,7 +28,7 @@ experiments:
 
 
   yolo11n:
-    model: "yolo11n.pt"
+    model: "YOLO_Weights/yolo11n.pt"
     data: "yolo_dataset/dataset.yaml"
 
     training:

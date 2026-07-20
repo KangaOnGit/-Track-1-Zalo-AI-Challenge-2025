@@ -5,7 +5,6 @@ from src.utils.config import load_config
 
 
 def parse_args():
-    
     # Create parser
     parser = argparse.ArgumentParser(
         description="Train a YOLO model."

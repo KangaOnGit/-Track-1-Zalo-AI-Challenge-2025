@@ -3,7 +3,7 @@ import argparse
 from src.utils.config import load_config
 from src.inference.predictor import run_inference
 
-def main():
+def parse_args():
     parser = argparse.ArgumentParser(
         description="Run inference."
     )
@@ -26,7 +26,24 @@ def main():
         help="Enable CLAHE preprocessing."
     )
 
-    args = parser.parse_args()
+
+    parser.add_argument(
+        "--imgsz1",
+        type=int,
+        default=None,
+        help="Image size for model 1."
+    )
+
+    parser.add_argument(
+        "--imgsz2",
+        type=int,
+        default=None,
+        help="Image size for model 2."
+    )
+    return parser.parse_args()
+
+def main():
+    args = parse_args()
 
     cfg = load_config(args.config)
     
@@ -44,6 +61,9 @@ def main():
 
         tta=args.tta,
         clahe=args.clahe,
+
+        imgsz1 = args.imgsz1 if args.imgsz1 is not None else cfg["model"]["imgsz1"],
+        imgsz2 = args.imgsz2 if args.imgsz2 is not None else cfg["model"]["imgsz2"],
     )
 
 
