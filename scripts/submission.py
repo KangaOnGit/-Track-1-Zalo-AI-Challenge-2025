@@ -1,0 +1,52 @@
+import argparse
+
+from src.utils.config import load_config
+from src.inference.predictor import run_inference
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Run inference."
+    )
+
+    parser.add_argument(
+        "--config",
+        default="configs/inference.yaml",
+        help="Inference configuration file."
+    )
+    # action: what to do when the argument appears
+    parser.add_argument(
+        "--tta",
+        action="store_true", # if --tta => tta = True else False
+        help="Enable Test-Time Augmentation."
+    )
+
+    parser.add_argument(
+        "--clahe",
+        action="store_true",
+        help="Enable CLAHE preprocessing."
+    )
+
+    args = parser.parse_args()
+
+    cfg = load_config(args.config)
+    print(cfg)
+    #run_inference(
+        #yolov8_weights=cfg["model"]["yolov8n"],
+        #yolov11_weights=cfg["model"]["yolov11n"],
+
+        #test_data_dir=cfg["data"]["test_dir"],
+        #ref_img_dir=cfg["data"]["ref_img_dir"],
+
+        #output_file=cfg["output"]["file"],
+
+        #confidence_threshold=cfg["inference"]["confidence_threshold"],
+
+        #tta=args.tta,
+        #clahe=args.clahe,
+    #)
+
+
+if __name__ == "__main__":
+    main()
+    
+# python -m scripts.submission --args

@@ -1,0 +1,54 @@
+experiments:
+
+  yolov8n:
+    model: "yolov8n.pt"
+    data: "yolo_dataset/dataset.yaml"
+
+    training:
+      epochs: 50
+      batch: 16
+      imgsz: 1024
+      patience: 20
+
+    optimizer:
+      name: "auto"
+      lr0: 0.001
+      cos_lr: false
+
+    augmentation:
+      mixup: 0.1
+      degrees: 15.0
+      shear: 5.0
+
+    options:
+      single_cls: false
+
+    output:
+      name: "drone_training_yolov8n"
+
+
+  yolo11n:
+    model: "yolo11n.pt"
+    data: "yolo_dataset/dataset.yaml"
+
+    training:
+      epochs: 50
+      batch: 4
+      imgsz: 640
+      patience: 20
+
+    optimizer:
+      name: "AdamW"
+      lr0: 0.0005
+      cos_lr: true
+
+    augmentation:
+      # cutmix: 0.1
+      # copy_paste: 0.2
+      # copy_paste_mode: "mixup"
+
+    options:
+      single_cls: true
+
+    output:
+      name: "drone_training_yolo11n"
