@@ -4,6 +4,7 @@ from src.utils.config import load_config
 from src.inference.predictor import run_inference
 
 def parse_args():
+    # Basically Python take input() but for Kernel
     parser = argparse.ArgumentParser(
         description="Run inference."
     )
