@@ -96,24 +96,24 @@ YOLOv8-n achieved higher precision and mAP@50, whereas YOLOv11-n obtained the hi
 
 <p align="center">
 <img src="images/yolov8n_train.png" width="700"><br>
-<b>Figure 2a.<b> YOLOv8-n Training Performance.
+<b>Figure 2a.</b> YOLOv8-n Training Performance.
 </p>
 
 <p align="center">
 <img src="images/yolov8n_inference.jpg" width="700"><br>
-<b>Figure 2b.<b> YOLOv8-n Inference.
+<b>Figure 2b.</b> YOLOv8-n Inference.
 </p>
 
 ### YOLOv11-n Training & Example Inference
 
 <p align="center">
 <img src="images/yolov11n_train.png" width="700"><br>
-<b>Figure 3a.<b> YOLOv11-n Training Performance.
+<b>Figure 3a.</b> YOLOv11-n Training Performance.
 </p>
 
 <p align="center">
 <img src="images/yolov11n_inference.jpg" width="700"><br>
-<b>Figure 3b.<b> YOLOv11-n Inference.
+<b>Figure 3b.</b> YOLOv11-n Inference.
 </p>
 
 
