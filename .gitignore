@@ -207,4 +207,9 @@ marimo/_lsp/
 __marimo__/
 
 
-data/
+data/train
+data/public_test/samples/BlackBox_1
+data/public_test/samples/CardboardBox_0
+data/public_test/samples/CardboardBox_1
+data/public_test/samples/LifeJacket_0
+data/public_test/samples/LifeJacket_1
