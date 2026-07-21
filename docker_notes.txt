@@ -1,0 +1,174 @@
+Notes so i dont forger this docker stuff
+    and to remember to deploy this
+
+Docker Image
+------------
+- A blueprint/template for an application.
+- Contains:
+    - Application code
+    - Python/runtime
+    - Installed dependencies
+    - System libraries
+    - Instructions for how the application starts
+- Built from a Dockerfile.
+- Immutable (doesn't change after being built).
+
+Think:
+    Dockerfile -> Image
+
+------------------------------------------------
+
+Docker Container
+----------------
+- A running instance of an image.
+- Created by Docker from an image.
+- Has its own filesystem, processes, network, etc.
+- Can be started, stopped, restarted, or deleted.
+
+Think:
+    Image -> Container
+
+Like:
+    Class -> Object
+    Blueprint -> House
+    Recipe -> Cooked Meal
+
+------------------------------------------------
+
+Dockerfile
+----------
+- Instructions for building an image.
+- Specifies:
+    - Base image
+    - System packages
+    - Python packages
+    - Files to copy
+    - Startup command
+
+Think:
+    Dockerfile -> docker build -> Image
+
+------------------------------------------------
+
+Docker Compose
+--------------
+- Describes how multiple containers should run together.
+- Starts all required services with one command.
+- Configures:
+    - Networks
+    - Volumes
+    - Environment variables
+    - Ports
+    - Dependencies
+
+Command:
+    docker compose up
+
+Example:
+    FastAPI
+        │
+        ├── PostgreSQL
+        ├── Redis
+        └── ML Worker
+
+instead of running several docker run commands manually.
+
+Dockerfile
+      │
+      ▼
+   docker build
+      │
+      ▼
+    Image
+      │
+      ▼
+   docker run
+      │
+      ▼
+  Container
+-------------------
+Docker Compose
+      │
+      ▼
+Starts many containers together
+
+App Container
+Database Container
+Redis Container
+Worker Container
+
+-----------------------
+Mock YAML:
+
+services:
+
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+    environment:
+      DEBUG: "true"
+
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_PASSWORD: secret
+
+-----------------------
+
+Every container is a service:
+    services
+    ├── app
+    └── db
+
+-----------------------
+
+build: . -> Build this service using the Dockerfile in
+                the current directory.
+equivalent to docker build .
+
+-----------------------
+
+image: postgres:17 -> Don't build anything.
+                Just download the official PostgreSQL image.
+
+-----------------------
+
+ports:
+  - "8080:8080"
+means:
+    Host Machine
+    localhost:8080
+            │
+            ▼
+    Container
+    8080
+Format: HOST_PORT:CONTAINER_PORT
+
+-----------------------
+
+volumes:
+  - .:/app
+
+Current Folder
+        │
+        ▼
+Container /app
+
+Changes you make locally appear immediately inside the container
+
+-----------------------
+
+environment:
+  DEBUG: "true"
+
+is equivalent to `export DEBUG=true` inside the container.
+
+Python can then do
+`import os
+debug = os.getenv("DEBUG")`
+
+
+    
