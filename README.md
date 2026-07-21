@@ -1,5 +1,9 @@
 # YOLO Ensembles for Real-Time Small Object Detection on Moving Drones with Reference Images
 
+This repository contains code, configuration, and documentation for the Zalo AI Challenge - AeroEyes (AI-Powered Drone Search & Rescue). It uses an ensemble of YOLO-based detectors with reference-image similarity to improve small object detection performance in moving drones
+
+> Note: The dataset used in the competition is not public. It can be requested from the organizer at: https://challenge.zalo.ai/portal/aero-eyes
+
 ## Highlights
 
 - 🏆 Zalo AI Challenge - AeroEyes
@@ -8,10 +12,6 @@
 - 🔍 Reference-image similarity verification
 - ⚡ Weighted Boxes Fusion + TTA + CLAHE
 - 📈 Public leaderboard: Rank 72 / 1600 (49.4% 3D ST-IoU)
-
-This repository contains code, configuration, and documentation for the Zalo AI Challenge - AeroEyes (AI-Powered Drone Search & Rescue). It uses an ensemble of YOLO-based detectors with reference-image similarity to improve small object detection performance in moving drones
-
-> Note: The dataset used in the competition is not public. It can be requested from the organizer at: https://challenge.zalo.ai/portal/aero-eyes
 
 ## Competition Overview
 
@@ -24,7 +24,8 @@ Mssion: build a perception system that can determine when and where a given targ
 ## Pipeline
 
 <p align="center">
-  <img src="images\Inference Pipeline.png" width="900">
+<img src="images/pipeline.png" width="900"><br>
+<b>Figure 1.</b> Overall inference pipeline.
 </p>
 
 The overall inference pipeline consists of:
@@ -42,6 +43,7 @@ The overall inference pipeline consists of:
   - `YOLOv8-n`
   - `YOLOv11-n`
 - Reference image similarity scoring to reweight detection confidence
+- Weighted Boxes Fusion for ensemble prediction
 - Test-time augmentation (TTA) support during inference
 - CLAHE preprocessing option for improved contrast in drone frames
 - Prediction output formatted as JSON for challenge submission
@@ -73,12 +75,6 @@ The overall inference pipeline consists of:
 
 ## Experimental Results
 
-| Metric | Result |
-|---------|--------|
-| Team | AIO_404 |
-| Public Rank | 72 / 1600 |
-| 3D ST-IoU | 49.4% |
-
 ### Training Performance
 
 | Model | Precision | Recall | mAP@50 | mAP@50:95 |
@@ -88,24 +84,36 @@ The overall inference pipeline consists of:
 
 YOLOv8-n achieved higher precision and mAP@50, whereas YOLOv11-n obtained the highest mAP@50:95, indicating stronger localization performance under stricter IoU thresholds. Their complementary strengths motivated the use of weighted boxes fusion during inference.
 
+### Leaderboard Performance
+
+| Metric | Result |
+|---------|--------|
+| Team | AIO_404 |
+| Public Rank | 72 / 1600 |
+| 3D ST-IoU | 49.4% |
+
 ### YOLOv8-n Training & Example Inference
 
 <p align="center">
-<img src="images\yolov8n_train.png" width="700">
+<img src="images/yolov8n_train.png" width="700"><br>
+<b>Figure 2a.<b> YOLOv8-n Training Performance.
 </p>
 
 <p align="center">
-<img src="images\yolov8n_public_sample_inference.jpg" width="700">
+<img src="images/yolov8n_inference.jpg" width="700"><br>
+<b>Figure 2b.<b> YOLOv8-n Inference.
 </p>
 
 ### YOLOv11-n Training & Example Inference
 
 <p align="center">
-<img src="images\yolov11n_train.png" width="700">
+<img src="images/yolov11n_train.png" width="700"><br>
+<b>Figure 3a.<b> YOLOv11-n Training Performance.
 </p>
 
 <p align="center">
-<img src="images\yolov11n_public_sample_inference.jpg" width="700">
+<img src="images/yolov11n_inference.jpg" width="700"><br>
+<b>Figure 3b.<b> YOLOv11-n Inference.
 </p>
 
 

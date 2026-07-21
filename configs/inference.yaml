@@ -1,6 +1,6 @@
 model:
-  yolov8n: 'YOLO_Weights/YOLOv8-n.pt'
-  yolov11n: 'YOLO_Weights/YOLOv11-n.pt'
+  yolov8n: 'weights/YOLOv8-n.pt'
+  yolov11n: 'weights/YOLOv11-n.pt'
   
   imgsz1: 640
   imgsz2: 1024
