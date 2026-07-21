@@ -1,0 +1,23 @@
+.git
+.gitignore
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.swp
+.DS_Store
+.vscode
+.idea
+*.log
+*.tmp
+*.cache
+*.egg-info
+build/
+dist/
+*.egg
+
+# Optional local data and notebooks
+data/
+notebooks/
+train_results/
+images/

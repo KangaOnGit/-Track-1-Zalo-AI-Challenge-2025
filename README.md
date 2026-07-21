@@ -137,7 +137,7 @@ YOLOv8-n achieved higher precision and mAP@50, whereas YOLOv11-n obtained the hi
   - `models/` - model loading, ensemble fusion, similarity scoring
   - `preprocess/` - image preprocessing (CLAHE)
   - `utils/` - config loading helpers
-- `YOLO_Weights/`
+- `weights/`
   - pretrained weights for YOLOv8-n and YOLOv11-n
 
 ## Requirements
